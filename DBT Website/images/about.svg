@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <!-- Background Elements -->
+  <rect x="0" y="0" width="400" height="300" fill="#f8f9fa" opacity="0.1" />
+  <circle cx="350" cy="50" r="30" fill="#e8f0fe" />
+  <circle cx="50" cy="250" r="20" fill="#e8f0fe" />
+  
+  <!-- Confused Student -->
+  <circle cx="100" cy="100" r="30" fill="#e8f0fe" stroke="#1a73e8" stroke-width="2" />
+  <circle cx="90" cy="90" r="5" fill="#1a73e8" />
+  <circle cx="110" cy="90" r="5" fill="#1a73e8" />
+  <path d="M85 115 C95 105, 105 105, 115 115" stroke="#1a73e8" stroke-width="2" fill="none" transform="rotate(180, 100, 110)" />
+  
+  <!-- Question Marks -->
+  <text x="80" y="60" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1a73e8">?</text>
+  <text x="110" y="50" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1a73e8">?</text>
+  <text x="130" y="70" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1a73e8">?</text>
+  
+  <!-- Aadhaar Card -->
+  <rect x="180" y="70" width="80" height="60" rx="5" fill="white" stroke="#1a73e8" stroke-width="2" />
+  <rect x="190" y="80" width="20" height="20" rx="2" fill="#e8f0fe" />
+  <rect x="190" y="105" width="20" height="5" rx="1" fill="#1a73e8" />
+  <rect x="190" y="115" width="15" height="5" rx="1" fill="#1a73e8" />
+  <rect x="220" y="85" width="30" height="5" rx="1" fill="#e8f0fe" />
+  <rect x="220" y="95" width="30" height="5" rx="1" fill="#e8f0fe" />
+  <rect x="220" y="105" width="30" height="5" rx="1" fill="#e8f0fe" />
+  
+  <!-- Bank Account -->
+  <rect x="180" y="170" width="80" height="60" rx="5" fill="white" stroke="#34a853" stroke-width="2" />
+  <rect x="190" y="180" width="60" height="5" rx="1" fill="#e8f0fe" />
+  <rect x="190" y="190" width="60" height="5" rx="1" fill="#e8f0fe" />
+  <rect x="190" y="200" width="60" height="5" rx="1" fill="#e8f0fe" />
+  <rect x="190" y="210" width="40" height="5" rx="1" fill="#e8f0fe" />
+  
+  <!-- Broken Connection -->
+  <path d="M220 130 L220 150" stroke="#ea4335" stroke-width="2" stroke-dasharray="5,3" />
+  <path d="M215 150 L225 140" stroke="#ea4335" stroke-width="2" />
+  <path d="M215 140 L225 150" stroke="#ea4335" stroke-width="2" />
+  
+  <!-- Scholarship Rejection -->
+  <rect x="300" y="120" width="70" height="60" rx="5" fill="white" stroke="#ea4335" stroke-width="2" />
+  <path d="M310 150 L360 150" stroke="#ea4335" stroke-width="2" />
+  <path d="M310 160 L340 160" stroke="#ea4335" stroke-width="2" />
+  <path d="M310 140 L360 140" stroke="#ea4335" stroke-width="2" />
+  <path d="M310 130 L360 130" stroke="#ea4335" stroke-width="2" />
+  <circle cx="320" cy="175" r="5" fill="#ea4335" />
+  
+  <!-- Rejection Arrow -->
+  <path d="M260 100 C280 100, 280 120, 300 120" stroke="#ea4335" stroke-width="2" fill="none" />
+  <polygon points="295,115 300,120 295,125" fill="#ea4335" />
+  
+  <!-- Sad Face Emoji -->
+  <circle cx="300" cy="220" r="25" fill="#e8f0fe" stroke="#ea4335" stroke-width="2" />
+  <circle cx="290" cy="210" r="3" fill="#ea4335" />
+  <circle cx="310" cy="210" r="3" fill="#ea4335" />
+  <path d="M285 230 C295 225, 305 225, 315 230" stroke="#ea4335" stroke-width="2" fill="none" transform="rotate(180, 300, 225)" />
+</svg>
