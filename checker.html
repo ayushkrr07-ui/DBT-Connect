@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check DBT Status - Aadhaar DBT Checker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/checker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.svg" alt="Aadhaar DBT Logo">
+                <h1>Aadhaar DBT Checker</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="checker.html" class="active">Check Status</a></li>
+                    <li><a href="index.html#scholarships">Scholarships</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Checker Hero Section -->
+    <section class="checker-hero">
+        <div class="container">
+            <div class="checker-hero-content">
+                <h1>Check Your Aadhaar-DBT Status</h1>
+                <p>Verify if your bank account is properly linked with Aadhaar and enabled for Direct Benefit Transfer (DBT) to ensure smooth scholarship disbursement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checker Form Section -->
+    <section class="checker-form">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>DBT Status Checker</h2>
+                    <p>Enter your details to check your Aadhaar-DBT seeding status</p>
+                </div>
+                <form id="dbt-checker-form">
+                    <div class="form-group">
+                        <label for="aadhaar">Aadhaar Number (Last 4 digits only)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" id="aadhaar" name="aadhaar" placeholder="Enter last 4 digits of Aadhaar" maxlength="4" pattern="[0-9]{4}" required>
+                        </div>
+                        <small>For security, we only require the last 4 digits</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="bank-account">Bank Account Number (Last 4 digits only)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-university"></i>
+                            <input type="text" id="bank-account" name="bank-account" placeholder="Enter last 4 digits of account" maxlength="4" pattern="[0-9]{4}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bank-name">Bank Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-landmark"></i>
+                            <select id="bank-name" name="bank-name" required>
+                                <option value="" disabled selected>Select your bank</option>
+                                <option value="sbi">State Bank of India</option>
+                                <option value="pnb">Punjab National Bank</option>
+                                <option value="bob">Bank of Baroda</option>
+                                <option value="canara">Canara Bank</option>
+                                <option value="hdfc">HDFC Bank</option>
+                                <option value="icici">ICICI Bank</option>
+                                <option value="axis">Axis Bank</option>
+                                <option value="idbi">IDBI Bank</option>
+                                <option value="union">Union Bank of India</option>
+                                <option value="other">Other Bank</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Registered Mobile Number</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                            <input type="tel" id="mobile" name="mobile" placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" required>
+                        </div>
+                    </div>
+                    <div class="form-group captcha-group">
+                        <label for="captcha">Security Verification</label>
+                        <div class="captcha-container">
+                            <div class="captcha" id="captcha-code">XA7B9C</div>
+                            <button type="button" id="refresh-captcha" class="refresh-btn">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                        <div class="input-with-icon">
+                            <i class="fas fa-shield-alt"></i>
+                            <input type="text" id="captcha" name="captcha" placeholder="Enter captcha code" required>
+                        </div>
+                    </div>
+                    <div class="form-group consent-group">
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">I consent to the verification of my Aadhaar-DBT status</label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Check Status</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Result Section (Initially Hidden) -->
+            <div class="result-container" id="result-container" style="display: none;">
+                <div class="result-header">
+                    <h2>DBT Status Result</h2>
+                    <div class="result-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+                <div class="result-content">
+                    <div class="result-status">
+                        <h3>Aadhaar-DBT Status: <span id="dbt-status">Enabled</span></h3>
+                    </div>
+                    <div class="result-details">
+                        <p>Your bank account is properly linked with Aadhaar and enabled for Direct Benefit Transfer (DBT).</p>
+                        <p>This means you are eligible to receive scholarship benefits directly into your bank account.</p>
+                    </div>
+                    <div class="result-actions">
+                        <button id="check-again" class="btn btn-secondary">Check Another Account</button>
+                        <a href="index.html#scholarships" class="btn btn-primary">View Scholarships</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Important Information</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>What is Aadhaar-DBT Seeding?</h3>
+                    <p>Aadhaar-DBT seeding is the process of linking your Aadhaar number with your bank account and enabling it for Direct Benefit Transfer. This ensures that government benefits like scholarships are transferred directly to your account.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Common Issues</h3>
+                    <p>If your account is not DBT-enabled, you may face delays in receiving scholarships. Common issues include:</p>
+                    <ul>
+                        <li>Aadhaar not linked to bank account</li>
+                        <li>Bank account not mapped in NPCI mapper</li>
+                        <li>Multiple accounts linked to same Aadhaar</li>
+                        <li>Incorrect bank details in scholarship application</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>How to Fix Issues</h3>
+                    <p>If your account is not DBT-enabled, follow these steps:</p>
+                    <ol>
+                        <li>Visit your bank branch with your Aadhaar card</li>
+                        <li>Request to link your Aadhaar with your account</li>
+                        <li>Ensure DBT enablement is activated</li>
+                        <li>Update your scholarship application with the correct bank details</li>
+                        <li>Check status again after 7-10 working days</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is the difference between Aadhaar linking and DBT enablement?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aadhaar linking is simply connecting your Aadhaar number to your bank account. DBT enablement is an additional step where your bank account is mapped in the NPCI mapper to receive direct benefit transfers. Both steps are necessary for scholarship disbursement.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I have multiple bank accounts linked to my Aadhaar?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can link multiple bank accounts to your Aadhaar. However, for DBT purposes, only one account can be active for receiving benefits at a time. This is determined by the last account you enabled for DBT, which becomes your primary account in the NPCI mapper.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does it take for DBT enablement after linking Aadhaar?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>After linking your Aadhaar with your bank account, DBT enablement typically takes 7-10 working days to reflect in the system. This time is needed for your bank to update your details in the NPCI mapper.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What should I do if my scholarship is rejected due to DBT issues?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If your scholarship is rejected due to DBT issues, first verify your DBT status using this tool. Then visit your bank with your Aadhaar card and request proper linking and DBT enablement. After confirmation from the bank, update your scholarship application with the correct bank details and reapply if possible.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is this checker tool an official government service?</h3>
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This checker tool is an awareness initiative to help students understand their Aadhaar-DBT status. While it provides valuable information, for official verification, please visit your bank branch or use the official NPCI or UIDAI services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.svg" alt="Aadhaar DBT Logo">
+                    <h2>Aadhaar DBT Checker</h2>
+                    <p>Ensuring smooth scholarship disbursement through proper Aadhaar-DBT seeding awareness.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="checker.html">Check Status</a></li>
+                        <li><a href="index.html#scholarships">Scholarships</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-official">
+                    <h3>Official Portals</h3>
+                    <ul>
+                        <li><a href="https://scholarships.gov.in" target="_blank">National Scholarship Portal</a></li>
+                        <li><a href="https://uidai.gov.in" target="_blank">UIDAI Official Website</a></li>
+                        <li><a href="https://www.npci.org.in" target="_blank">NPCI Website</a></li>
+                        <li><a href="https://www.india.gov.in" target="_blank">National Portal of India</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Helpdesk</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> Toll-Free: 1800-XXX-XXXX</li>
+                        <li><i class="fas fa-envelope"></i> support@aadhaardbt.gov.in</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ministry of Education, New Delhi</li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Aadhaar DBT Checker. All Rights Reserved.</p>
+                <p>This is an awareness initiative. For official information, please visit government portals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/checker.js"></script>
+</body>
+</html>
